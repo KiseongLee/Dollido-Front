@@ -65,9 +65,9 @@ const HP = ({ socket, index }) => {
     useEffect(() => {
       socket.on("smile", (peerHP, peerStreamID, isJudgement) => {
         if (partnerVideos[index] && partnerVideos[index].id === peerStreamID) {
-          peersHP.current = peerHP;
           
           if (peersHP.current !== peerHP) {
+            peersHP.current = peerHP;
             if(!isJudgement) {
               setContent(
                 <>
@@ -82,6 +82,7 @@ const HP = ({ socket, index }) => {
               setContent(hpIndex());
             }
           } else {
+            peersHP.current = peerHP;
             setContent(hpIndex());
           }
         }
