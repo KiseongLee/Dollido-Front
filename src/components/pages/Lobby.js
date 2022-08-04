@@ -28,7 +28,6 @@ import { useInterval } from "../common/usefulFuntions";
 import { useSelector, useDispatch } from "react-redux";
 import { setInGameInit } from "../../modules/inGame.js";
 import { setItemInit } from "../../modules/item.js";
-import { setMemberInit } from "../../modules/member";
 import { setCheckGet, setRanking, setTier, setWinRate, setWin, setLose } from "../../modules/member.js";
 import { setOnVideo } from "../../modules/makeRoomVideo";
 
@@ -40,6 +39,9 @@ import KoreanMask from "../../images/KoreanMask2.png";
 
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import "../common/logout.css";
+
+
+import { setMemberInit } from "../../modules/member";
 
 
 const FlexContainer = styled.div`
@@ -257,7 +259,6 @@ const Lobby = () => {
     select,
     { volume: 0.5 }
   );
-  
 
   // 임시
   const nickname = useSelector((state) => state.member.member.user_nick);
@@ -277,9 +278,9 @@ const Lobby = () => {
   /* 방 만들기 */
   const [makeroommodal, setmakeRoomModal] = useState(false);
 
-  
 
-  
+
+
   useEffect(() => {
     if (stop) {
       stopWebcam();
@@ -348,6 +349,8 @@ const Lobby = () => {
     startVideo();
     videoNModelInit();
   };
+
+   // 2. 방 생성 절차
 
   const onClickStartRoom = (e) =>{
     e.preventDefault();
@@ -443,7 +446,7 @@ const ShowStatus = () => {
       }
       return content
   }
-  
+
   const logout = () => {
     dispatch(setMemberInit());
   }
@@ -566,6 +569,8 @@ const ShowStatus = () => {
                       <BackToLobby to = {'/tutorial'} onMouseEnter={selectSound} >
                         <FontAwesomeIcon style= {{background:"white", border: "none", outline: "none", color:"#F0A82BEE", borderRadius:"50%"}} icon={faQuestionCircle} size="2x"/>
                       </BackToLobby>
+
+
                   </div>
               </Content>
             </FlexContainer>

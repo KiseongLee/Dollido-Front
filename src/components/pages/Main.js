@@ -41,7 +41,7 @@ const Main = () => {
                 setModal(true);
             }
         })
-    }  
+    }
     const [selectSound] = useSound(
         select,
         { volume: 0.5 }
@@ -51,7 +51,7 @@ const Main = () => {
         <div style={{height: "100vh"}}>
             <GlobalStyles bgImage={mainBackground}></GlobalStyles>
             <Button style={ { position: "absolute", bottom: "10%", left: "50%", transform: "translate(-50%, -50%)", width: "25rem", height: "7rem"} } onClick = {login} >
-                <Word style={ {fontSize: "2rem"} } onMouseEnter = {selectSound}> Game Start </Word> 
+                <Word style={ {fontSize: "2rem"} } onMouseEnter = {selectSound}> Game Start </Word>
             </Button>
             {modal ?
                 change ?

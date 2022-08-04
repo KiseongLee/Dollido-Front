@@ -47,7 +47,7 @@ const LabelStyle = styled.label`
   min-height: 15px;
   text-align: center;
   width: 25%;
-  line-height:30px; 
+  line-height:30px;
   margin-right: 30px;
   text-transform:uppercase;
   color:white;
@@ -138,7 +138,7 @@ function Images() {
 
   const handleImgError = (e) => {
     e.target.src = Base;
-  } 
+  }
 
   return (
     <App>
