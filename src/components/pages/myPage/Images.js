@@ -44,6 +44,7 @@ const LabelStyle = styled.label`
   box-shadow: 0px 0px 3px #ffd200;
   -webkit-appearance:none;
   font-size: 30px;
+  font-family: koverwatch;
   min-height: 15px;
   text-align: center;
   width: 25%;
