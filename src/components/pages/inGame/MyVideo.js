@@ -148,7 +148,6 @@ const MyNickname = {
 
 
 const MyVideo = ({ match, socket }) => {
-    console.log(faceapi);
     const dispatch = useDispatch();
     // const inGameState = useSelector((state) => (state.inGame));
     const token = useSelector((state) => state.member.member.tokenInfo.token);
@@ -233,6 +232,7 @@ const MyVideo = ({ match, socket }) => {
 
     const ShowStatus = ({myStreamID}) => {
         const reverse = useSelector((state) => state.item.reverse);
+        const partnerVideos = useSelector((state) => state.videos); 
 
         /* judgement*/
         const isAbusing = useSelector((state) => state.item.judgementList[myStreamID]);
@@ -244,6 +244,12 @@ const MyVideo = ({ match, socket }) => {
         const [smiling, setSmiling] = useState(false);
         const [interval, setModelInterval] = useState(gameFinished ? null : modelInterval);
         let content = "";
+        
+        useEffect(() => {
+            if (gameStarted && !gameFinished) {
+                socket.emit("smile", myHP, roomID, user_nick, myStream.id, false);
+            }
+        }, [partnerVideos]);
 
         /** 모델 돌리기 + 체력 깎기 */
         useInterval(async () => {

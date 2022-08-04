@@ -48,47 +48,45 @@ const HP = ({ socket, index }) => {
     const peersHP = useRef(100);
     const [content, setContent] = useState(<ProgressBar striped variant="danger" now={peersHP.current} />);
 
+    const effectIndex = (index) => {
+      if (index === 0) {
+        return <ImgStyle1 src={effect}/>
+      } else if (index === 1) {
+        return <ImgStyle2 src={effect}/>
+      } else if (index === 2) {
+        return <ImgStyle3 src={effect}/>
+      }
+    }
+
+    const hpIndex = () => {
+      return <ProgressBar striped variant="danger" now={peersHP.current} />
+    }
+
     useEffect(() => {
       socket.on("smile", (peerHP, peerStreamID, isJudgement) => {
         if (partnerVideos[index] && partnerVideos[index].id === peerStreamID) {
           peersHP.current = peerHP;
-
-          if(!isJudgement) {
-            if (index === 0 ) {
+          
+          if (peersHP.current !== peerHP) {
+            if(!isJudgement) {
               setContent(
                 <>
-                  <ImgStyle1 src={effect}/>
-                  <ProgressBar striped variant="danger" now={peersHP.current} />
+                  {effectIndex(index)}
+                  {hpIndex()}
                 </>
               )
               setTimeout(() => {
-                setContent(<ProgressBar striped variant="danger" now={peersHP.current} />);
+                setContent(hpIndex());
               }, 1000);
-            } else if (index === 1) {
-              setContent(
-                <>
-                  <ImgStyle2 src={effect}/>
-                  <ProgressBar striped variant="danger" now={peersHP.current} />
-                </>
-              )
-              setTimeout(() => {
-                setContent(<ProgressBar striped variant="danger" now={peersHP.current} />);
-              }, 1000);
-            } else if(index === 2) {
-              setContent(
-                <>
-                  <ImgStyle3 src={effect}/>
-                  <ProgressBar striped variant="danger" now={peersHP.current} />
-                </>
-              )
-              setTimeout(() => {
-                setContent(<ProgressBar striped variant="danger" now={peersHP.current} />);
-              }, 1000);
+            } else {
+              setContent(hpIndex());
             }
+          } else {
+            setContent(hpIndex());
           }
         }
       })
-
+      
       socket.on("finish", (hpList) => {
         hpList.map((HP) => {
           if (partnerVideos[index] && partnerVideos[index].id === HP[0]) {
@@ -97,9 +95,11 @@ const HP = ({ socket, index }) => {
             } else {
               peersHP.current = HP[1];
             }
+            setContent(hpIndex());
           }
         })
       });
+
     }, [socket, partnerVideos])
 
     useEffect(() => {
@@ -113,6 +113,7 @@ const HP = ({ socket, index }) => {
       <Container>
         <Content>
           {content}
+          {partnerVideos[index].id}
         </Content>
       </Container>;
 }
