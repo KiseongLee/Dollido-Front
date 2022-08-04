@@ -34,7 +34,7 @@ const Main = () => {
 
     const login = () => {
         auth(token).then((result) => {
-            console.log(result);
+            // console.log(result);
             if (result) {
                 window.location.href = "/univ";
             } else {

@@ -113,7 +113,6 @@ const HP = ({ socket, index }) => {
       <Container>
         <Content>
           {content}
-          {partnerVideos[index].id}
         </Content>
       </Container>;
 }

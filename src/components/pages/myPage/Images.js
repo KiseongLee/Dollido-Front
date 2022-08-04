@@ -114,9 +114,9 @@ function Images() {
   const fileSelected = event => {
     const file = event.target.files[0]
     insertImg(event);
-    console.log(file)
-    setFile(file)
-    console.log(file);
+    // console.log(file);
+    setFile(file);
+    // console.log(file);
   }
 
   const insertImg = event => {

@@ -54,7 +54,7 @@ function BestPerformer(props) {
         if (response === null) {
             content = <h1> 오류가 발생했습니다 </h1>
         } else {
-            console.log(response.data)
+            // console.log(response.data)
             const result = response.data;
             const bestPerformerNick = result.bestPerformerNick;
             const bestVideoName = result.bestVideoName;

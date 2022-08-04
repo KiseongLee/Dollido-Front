@@ -292,7 +292,6 @@ const Lobby = () => {
   useEffect(() => {
     // socket.current = io(SERVER_ADDRESS.current);
     if (!checkGet) {
-      console.log("들어옵니다")
       socket.emit("get room list", (nickname));
     }
     else socket.emit("get room list", (null));
@@ -307,7 +306,6 @@ const Lobby = () => {
   useEffect(() => {
     socket.on("give room list", (rooms, result) => {
       if (result) {
-        console.log(result[0].tier)
         dispatch(setTier(result[0].tier));
         dispatch(setRanking(result[0].ranking));
         dispatch(setWinRate(result[0].point));

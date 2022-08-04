@@ -257,7 +257,6 @@ const MyVideo = ({ match, socket }) => {
                 if(detections.length === 0 && gameStarted) {
                     abusingCount.current += 1;
                     if(abusingCount.current === 10) {
-                        console.log("제우스가 지켜봅니다");
                         zeusAppear.current = true;
                         socket.emit("zeus_appear", roomID);
                     };

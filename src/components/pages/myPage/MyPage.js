@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import mainBackground from "../../../images/mainBackground.gif";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { GlobalStyles } from "../../common/Global.tsx";
+import { setMemberInit } from "../../../modules/member";
+
 
 /* MUI */
 import Box from '@mui/material/Box';
@@ -31,6 +33,8 @@ import KoreanMask from "../../../images/KoreanMask2.png";
 
 const MyPage = () => {
 
+  const dispatch = useDispatch();
+
   const [selectSound] = useSound(
     select,
     { volume: 0.5 }
@@ -38,6 +42,10 @@ const MyPage = () => {
   const [exitSound] = useSound(
     exit,
   );
+
+  const logout = () => {
+    dispatch(setMemberInit());
+  };
 
   const nickname = useSelector((state) => state.member.member.user_nick);
   const tier = useSelector((state) => state.member.tier)
@@ -86,7 +94,7 @@ const MyPage = () => {
                             </span>
                           </div>
                         </Link>
-                        <button className="logout" border="0" outline="0">
+                        <button className="logout" onClick={logout} border="0" outline="0">
                         <FontAwesomeIcon className="logouticon" icon={faPowerOff} size="2x" color="white" style={{padding:"0 0 0 20px"}}/>
                         </button>
                       </>
