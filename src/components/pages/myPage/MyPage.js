@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { GlobalStyles } from "../../common/Global.tsx";
-import { setMemberInit } from "../../modules/member";
+import { setMemberInit } from "../../../modules/member";
 
 /* MUI */
 import Box from '@mui/material/Box';
