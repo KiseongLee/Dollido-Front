@@ -217,11 +217,7 @@ const MyVideo = ({ match, socket }) => {
                         recordVideo(userVideo.current.srcObject, user_nick, token);
                     }
                 }
-<<<<<<< HEAD
                 return 5;
-=======
-                return 3;
->>>>>>> 5d5771091c4afdaae4659ccb655e128f81fb034a
             } else {
                 return 2;
             }
