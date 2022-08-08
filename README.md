@@ -15,7 +15,7 @@
 ## :pushpin: 바로가기
 - [Service](https://www.dollido.kro.kr/)
 - [Front Github](https://github.com/KiseongLee/Dollido-Front)
-- [Back Github](https://github.com/dollido/Dollido-Back/)
+- [Back Github](https://github.com/KiseongLee/Dollido-Back)
 <br>
 
 ## 👨‍👨‍👦‍👦 멤버구성
