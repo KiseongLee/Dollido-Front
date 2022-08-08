@@ -14,7 +14,7 @@
 
 ## :pushpin: 바로가기
 - [Service](https://www.dollido.kro.kr/)
-- [Front Github](https://github.com/dollido/Dollido-Front/)
+- [Front Github](https://github.com/KiseongLee/Dollido-Front)
 - [Back Github](https://github.com/dollido/Dollido-Back/)
 <br>
 
